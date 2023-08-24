@@ -1,3 +1,6 @@
+-- 국내: USER_TBL, USER_VIEW, USER, MEMBER
+-- 영어권: 복수형 USERS, MEMBERS
+
 DROP TABLE USERS;
 CREATE TABLE USERS (
 	ID VARCHAR2(12) PRIMARY KEY,
@@ -18,5 +21,6 @@ VALUES('member', 'member123', '일반회원', 'USER');
 COMMIT
 
 SELECT*FROM USERS;
+SELECT COUNT(*) FROM USERS;
 
 Class.forName("oracle.jdbc.OracleDriver");
