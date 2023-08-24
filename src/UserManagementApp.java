@@ -2,6 +2,7 @@ import org.galapagos.common.cli.ui.Application;
 import org.galapagos.common.cli.ui.Menu;
 import org.galapagos.common.cli.ui.MenuItem;
 
+import common.JDBCUtil;
 import jdbc_ex.command.UserAddCommand;
 import jdbc_ex.command.UserDeleteCommand;
 import jdbc_ex.command.UserDetailCommand;
@@ -19,6 +20,14 @@ public class UserManagementApp extends Application {
 		menu.add(new MenuItem("추가", new UserAddCommand()));
 		menu.add(new MenuItem("수정", new UserUpdateCommand()));
 		menu.add(new MenuItem("삭제", new UserDeleteCommand()));
+	}
+
+	@Override
+	public void cleanup() {
+		super.cleanup();
+
+//		System.out.println("DB Connection Close");
+		JDBCUtil.close();
 	}
 
 	public static void main(String[] args) {
